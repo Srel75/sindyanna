@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>עמותת סינדיאנת הגליל | סינדיאנת הגליל</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="announcement-bar">
+      <div class="container">
+        <p class="announcement-bar__text">מבצע מיוחד לפסח, מארז שמן מתובל ב 20% הנחה</p>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-main__inner">
+        <div class="header-main__utils">
+          <button class="util-icon search-trigger" aria-label="חיפוש">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+          <div class="lang-switch">
+            <button class="util-icon lang-switch__btn" aria-label="שפה">عر</button>
+          </div>
+          <a href="account.html" class="util-icon" aria-label="החשבון שלי">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </a>
+          <a href="cart.html" class="util-icon cart-icon" aria-label="עגלת קניות">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-icon__count">0</span>
+          </a>
+        </div>
+
+        <a href="index.html" class="header-main__logo">
+          <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.4 155.09">
+            <g class="logo-svg__main">
+              <path d="M62.6,63.93h3.39v1.73h-21.43v-1.73h3.39V24.38h-3.39v-1.73h3.84c2.74-.28,5.31-1.21,7.48-2.49-.14-.02-.28,0-.42-.04-3.12-.73-4.83-4.75-3.84-8.98.99-4.23,4.32-7.07,7.44-6.34,3.12.73,4.84,4.75,3.84,8.98-.42,1.78-1.27,3.3-2.33,4.42h.01c-1.54,1.83-3.78,3.39-6.42,4.45h8.45v41.28ZM111.55,37.57c0-10.02-5.3-16-14.17-16-4.22,0-7.35,1.98-9.35,5.91v-4.82h-18.04v1.73h3.39v39.55h-3.39v1.73h21.88v-1.73h-3.84v-31.46c1.07-4.62,3.65-8.09,6.01-8.09,1.89,0,2.85,1.21,2.85,7.85v31.7h-2.19v1.73h20.24v-1.73h-3.39v-26.36ZM284.96,37.57c0-10.02-5.3-16-14.16-16-4.22,0-7.35,1.98-9.35,5.91v-4.82h-18.04v1.73h3.39v39.55h-3.39v1.73h20.24v-1.73h-2.19v-31.46c1.07-4.62,3.65-8.09,6.01-8.09,1.89,0,2.85,1.21,2.85,7.85v31.7h-2.19v1.73h20.24v-1.73h-3.39v-26.36ZM142.34,65.66v-4.81c-2.45,4.78-6.3,5.89-9.35,5.89-8.09,0-16.75-9.08-16.75-22.59s8.66-22.59,16.75-22.59c3.96,0,6.95,1.77,8.95,5.23-1.36-3.98-4.28-8.43-7.27-9.52-1.89-.69-11.95-4.07-18.7-6.16-6.56-2.03-13.52-6.24-15.88-7.78-2.36-1.55-1.36-3.82,9.35-3.24,10.7.58,19.13,8.94,22.31,11.88,5.49,5.07,8.6,8.39,10.58,12.1V5.04h-3.39v-1.73h18.04v60.62h3.39v1.73h-18.04ZM142.34,55.75v-23.18c-1.02-3.97-3.13-8.18-6.01-8.18s-4.6,2.53-4.6,15.44v8.67c0,12.91,1.69,15.44,4.6,15.44s4.99-4.21,6.01-8.18ZM23.6,26.74c-6.99-2.96-13.03-5.53-13.03-11.94,0-4.84,3.83-8.35,9.1-8.35,3.44,0,6.79.79,9.63,2.12-.2.04-.4.05-.59.12-3.76,1.3-5.37,6.49-3.61,11.59,1.76,5.1,6.24,8.19,10,6.89,3.76-1.3,5.37-6.49,3.61-11.59-.74-2.15-1.98-3.91-3.44-5.17h.01c-3.53-3.41-9.27-5.68-15.61-5.68C7.72,4.72,0,11.86,0,22.89s9.02,14.8,17.74,18.44c7.64,3.19,14.86,6.2,14.86,13.99,0,6.08-5.05,9.85-13.19,9.85-3.16,0-6.35-.78-9.13-2.11.21-.05.42-.05.63-.12,3.76-1.3,5.37-6.49,3.61-11.59-1.76-5.1-6.24-8.19-10-6.89-3.76,1.3-5.37,6.49-3.61,11.59.56,1.61,1.41,2.99,2.4,4.13h-.05c.1.1.21.2.31.3.24.25.48.48.74.71,3.7,3.38,9.3,5.72,15.11,5.72,12.33,0,22.75-8.85,22.75-19.33,0-12.96-9.87-17.14-18.57-20.84ZM217.21,78.76c-9.32-5.07-20.76-2.4-24.97-1.58-3.6.7-6.47,1.35-8.9,2.07.95-1,2.37-1.68,3.4-1.86,1.59-.28,10.59-1.7,19.09-7.79.27-.19.22-.62-.09-.74-1.69-.66-6.3-1.95-11.74.85-5.99,3.08-9.75,6.88-11.71,9.89-1.51.49-2.85,1.04-4.08,1.67,1.41-1.96,2.42-4.29,3.23-6.63l17.52-50.26h3.74v-1.73h-8.42v1.73h2.79l-7.43,21.32-9-21.32h3.28v-1.73h-23.32v1.73h3.78l17.99,42.39-2.67,7.43c-2.26,6.27-4.85,10.16-10.72,10.16-.75,0-1.44-.09-2.1-.22,2.63-.71,5.2-3,6.63-6.31,2.14-4.96.91-10.25-2.74-11.83-3.65-1.57-8.34,1.17-10.48,6.13-1.48,3.43-1.31,6.99.12,9.4,0,.03,0,.07.01.1,1.44,2.43,4.07,4.45,8.56,4.45,2.98,0,5.23-.94,7.01-2.4,0,0,.06-.01.06-.01,3.18-3.07,8.44-4.05,10.98-3.54,3.05.62,6.01,1.65,9.03,2.44.62.16,1.24.32,1.86.47,6.6,1.63,15.82,2.58,18.61,2.51,2.79-.08,10-1.71.69-6.78ZM383.4,59.26l-.13.77c-.75,4.33-3.65,6.72-8.15,6.72-5.65,0-10.58-2.81-12.42-6.81-1.5,3.58-5.13,6.81-11.64,6.81-7.09,0-12.04-4.62-12.04-11.25,0-7.19,5.67-11.51,11.29-12.61,2.13-.43,3.36-.52,4.35-.6.94-.07,1.62-.12,2.68-.43,1.8-.49,3.19-2.16,4.45-3.88v-8.04c0-4.45-1.9-6.35-6.35-6.35-1.2,0-2.42.21-3.61.53.36.13.72.29,1.05.52,2.97,2,3.18,6.9.45,10.94-2.72,4.04-7.34,5.69-10.31,3.68-2.97-2.01-3.18-6.9-.45-10.94.79-1.17,1.75-2.11,2.77-2.85,3.15-2.46,7.49-3.85,11.06-3.85,12.36,0,20.04,5.89,20.04,15.37v21.76c0,4.26,1.83,4.26,2.51,4.26,1.35,0,2.13-.97,2.61-3.23l.11-.52h1.73ZM361.78,40.88c-1.25,1.48-2.4,2.3-3.85,3.13-2.87,1.59-4.26,3.9-4.26,7.06v6.84c0,4.36.53,5.76,2.18,5.76,3.22,0,5.93-4.54,5.93-7.39v-15.4ZM243.51,60.03c-.75,4.33-3.65,6.72-8.15,6.72-5.65,0-10.58-2.81-12.42-6.81-1.5,3.58-5.13,6.81-11.64,6.81-7.09,0-12.04-4.62-12.04-11.25,0-7.19,5.67-11.51,11.29-12.61,2.13-.43,3.36-.52,4.35-.6.94-.07,1.62-.12,2.68-.43,1.8-.49,3.19-2.16,4.45-3.88v-8.04c0-4.45-1.9-6.35-6.35-6.35-1.2,0-2.42.21-3.61.53.36.13.72.29,1.05.52,2.97,2,3.18,6.9.45,10.94-2.72,4.04-7.34,5.69-10.31,3.68-2.97-2.01-3.18-6.9-.45-10.94.79-1.17,1.75-2.11,2.77-2.85,3.15-2.46,7.49-3.85,11.06-3.85,12.36,0,20.04,5.89,20.04,15.37v21.76c0,4.26,1.83,4.26,2.51,4.26,1.35,0,2.13-.97,2.61-3.23l.11-.52h1.73l-.13.77ZM222.03,40.88c-1.25,1.48-2.4,2.3-3.85,3.13-2.87,1.59-4.26,3.9-4.26,7.06v6.84c0,4.36.53,5.76,2.18,5.76,3.22,0,5.93-4.54,5.93-7.39v-15.4ZM338.07,23.15c2.07-1.09,4.25-1.98,6.36-3,.43-.21.86-.42,1.29-.63,4.58-2.28,10.32-6.22,11.88-7.63,1.56-1.4,4.9-5.85-2.91-4.22-7.81,1.63-13.07,8.73-15.08,11.25-1.72,2.15-3.05,3.92-4.09,5.52.06-1.04.54-2.12,1.04-2.72.78-.94,5.24-6.13,7.14-13.76.06-.24-.17-.46-.41-.38-1.29.44-4.56,1.95-6.31,6.2-1.93,4.68-2.24,8.69-1.89,11.37-1.12,1.84-1.87,3.49-2.32,5.28-1.99-5.64-6.54-8.87-13.02-8.87-4.22,0-7.35,1.98-9.35,5.91v-4.82h-18.04v1.73h3.39v39.55h-3.39v1.73h21.88v-1.73h-3.84v-31.46c1.07-4.62,3.65-8.09,6.01-8.09,1.89,0,2.85,1.21,2.85,7.85v31.7h-2.19v1.73h20.24v-1.73h-3.39v-26.36c0-1.39-.12-2.68-.32-3.91.03.07.04.11.04.11-.33-3.21,1.65-9.14,4.44-10.61Z" fill="#1d1d1b"/>
+            </g>
+            <g class="logo-svg__subtitle">
+              <path d="M175.21,111.3l5.76-.86v34.05h-5.76v-33.19ZM145.71,94.23h2.13v-2.29h-7.46v11.83h8.29l-1.76,36.27h-4.99v4.44h5.09c-1.96.78-3.14,2.44-3.94,3.93-.52.96-.9,2.2-.9,3.09-.01,1.97,1.16,3.58,2.61,3.59,1.45,0,2.64-1.58,2.65-3.56.01-1.97-1.16-3.58-2.61-3.59-.07,0-.14,0-.21.01.53-1.57,3.64-3.24,5.05-3.63,1.41-.39,2.58-1.78,2.58-3.35l2.04-41.72h-8.57v-5.02ZM117.96,94.23h2.13v-2.29h-7.46v11.83h8.29l-1.76,36.27h-4.99v4.44h6.67c1.97,0,3.65-1.58,3.65-3.51l2.04-41.72h-8.57v-5.02ZM130.6,123.7l5.76-1.07v-23.37h-5.76v24.44ZM165.94,99.26h-5.51v-2.13h-2.29v6.64h5.27v36.27h-6.46l-1.83,4.44h6.67l1.69-3.58.98,3.58h4.29v-42.36c0-1.94-.63-2.87-2.81-2.87ZM244.69,97.13h-2.29v2.13h.02s-.02.01-.02.01v37.55c0,1.86-.42,3.22-2.39,3.22h-2.25v-40.77h-3.47v-2.14h-2.29v2.13h.02s-.02.01-.02.01v38.05l2.18,2.72h-5.2v4.44h12.08c4.85,0,7.02-3.3,7.02-9.1v-36.11h-3.4v-2.14ZM263.18,99.26v-2.13h-2.29v6.64h4.2l-.07,32.4c0,3.44-.98,3.87-3.72,3.87h-1.12l-1.97-40.78h-3.4v-2.13h-2.29v2.13l2.46,45.23h6.81c6.81,0,8.99-3.01,8.99-8.67v-36.56h-7.6ZM188.91,99.27h-1.14s-10.56-.01-10.56-.01v-2.13h-2.29v6.64h11.45v40.71h5.76v-41.85c0-1.86-1.47-3.37-3.23-3.37ZM224.71,102.64v41.85h-17.49v-45.21h.01-.01v-2.14h2.29v2.14h11.97c1.76,0,3.23,1.5,3.23,3.37ZM219.23,103.78h-6.25v36.26h6.25v-36.26Z" fill="#1d1d1b"/>
+            </g>
+          </svg>
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="תפריט" aria-expanded="false">
+          <span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span>
+        </button>
+
+        <div class="header-main__social">
+          <a href="#" class="social-icon" aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="header-nav" aria-label="תפריט ראשי">
+      <div class="container">
+        <ul class="header-nav__list" id="navList">
+          <li class="header-nav__item header-nav__item--submenu">
+              <a href="about.html" class="header-nav__link header-nav__link--active">אודות</a>
+              <div class="submenu" data-submenu="about">
+                <div class="submenu__links">
+                  <a href="page-template.html" class="submenu__link submenu__link--active" data-img="img/placeholder-about-0.jpg">עמותת סנדיאנת הגליל</a>
+                  <a href="#" class="submenu__link" data-img="img/placeholder-about-1.jpg">סחר הוגן</a>
+                  <a href="#" class="submenu__link" data-img="img/placeholder-about-2.jpg">צוות העמותה</a>
+                  <a href="#" class="submenu__link" data-img="img/placeholder-about-3.jpg">שותפים חברתיים</a>
+                  <a href="#" class="submenu__link" data-img="img/placeholder-about-4.jpg">פרסים ומדליות</a>
+                  <a href="#" class="submenu__link" data-img="img/placeholder-about-5.jpg">אישורים ופרסים</a>
+                </div>
+                <div class="submenu__image"><div class="submenu__placeholder"></div></div>
+              </div>
+            </li>
+          <li class="header-nav__item header-nav__item--submenu">
+            <a href="#" class="header-nav__link">מרכז מבקרים</a>
+            <div class="submenu" data-submenu="visitors">
+              <div class="submenu__links">
+                <a href="#" class="submenu__link" data-img="img/placeholder-visit-0.jpg">מרכז מבקרים בצפון</a>
+                <a href="#" class="submenu__link" data-img="img/placeholder-visit-1.jpg">ביקור מודרך</a>
+                <a href="#" class="submenu__link" data-img="img/placeholder-visit-2.jpg">ארוחות מהמטבח המקומי</a>
+                <a href="#" class="submenu__link" data-img="img/placeholder-visit-3.jpg">חנות המפעל</a>
+                <a href="#" class="submenu__link" data-img="img/placeholder-visit-4.jpg">סדנאות</a>
+              </div>
+              <div class="submenu__image"><div class="submenu__placeholder"></div></div>
+            </div>
+          </li>
+          <li class="header-nav__item header-nav__item--submenu">
+            <a href="category.html" class="header-nav__link">חנות</a>
+            <div class="submenu" data-submenu="shop">
+              <div class="submenu__links">
+                <a href="category.html" class="submenu__link" data-img="img/placeholder-shop-0.jpg">כל החנות</a>
+                <a href="category.html" class="submenu__link" data-img="img/placeholder-shop-1.jpg">מבצעים</a>
+                <a href="category.html" class="submenu__link" data-img="img/placeholder-shop-2.jpg">שמן זית</a>
+                <a href="category.html" class="submenu__link" data-img="img/placeholder-shop-3.jpg">מארזי מתנה</a>
+                <a href="category.html" class="submenu__link" data-img="img/placeholder-shop-4.jpg">סבונים וטיפוח</a>
+              </div>
+              <div class="submenu__image"><div class="submenu__placeholder"></div></div>
+            </div>
+          </li>
+          <li class="header-nav__item"><a href="#" class="header-nav__link">חדשות ואירועים</a></li>
+          <li class="header-nav__item"><a href="#" class="header-nav__link">פרוייקטים</a></li>
+          <li class="header-nav__item"><a href="#" class="header-nav__link">גלריה</a></li>
+          <li class="header-nav__item"><a href="#" class="header-nav__link">צור קשר</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- ============================================
+       SEARCH OVERLAY
+       ============================================ -->
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="search-overlay__backdrop"></div>
+    <div class="search-overlay__panel">
+      <div class="container">
+        <form class="search-overlay__form" action="search.html" method="get" role="search">
+          <div class="search-overlay__input-wrap">
+            <svg class="search-overlay__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" name="q" class="search-overlay__input" placeholder="חיפוש מוצרים, מתכונים, מאמרים..." autocomplete="off">
+            <button type="button" class="search-overlay__close" aria-label="סגירת חיפוש">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="search-overlay__suggestions">
+            <span class="search-overlay__label">חיפושים פופולריים:</span>
+            <a href="search.html?q=שמן+זית" class="search-overlay__tag">שמן זית</a>
+            <a href="search.html?q=טחינה" class="search-overlay__tag">טחינה</a>
+            <a href="search.html?q=מארז+מתנה" class="search-overlay__tag">מארז מתנה</a>
+            <a href="search.html?q=זעתר" class="search-overlay__tag">זעתר</a>
+            <a href="search.html?q=סבון" class="search-overlay__tag">סבון</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       FLEXIBLE CONTENT BLOCKS START
+       Each section below is a separate ACF block.
+       In WordPress, these will be ACF Flexible Content layouts.
+       ============================================ -->
+
+  <!-- ============================================
+       BLOCK: Hero Banner
+       ACF: bg_image, title, subtitle, cta_text, cta_link, overlay_opacity
+       ============================================ -->
+  <section class="block-hero">
+    <div class="block-hero__bg">
+      <img src="https://images.unsplash.com/photo-1501004318855-b174af8b1837?w=1600&h=600&fit=crop" alt="" loading="eager">
+      <div class="block-hero__overlay"></div>
+    </div>
+    <div class="container block-hero__content">
+      <h1 class="block-hero__title">עמותת סינדיאנת הגליל</h1>
+      <p class="block-hero__subtitle">עסק חברתי בהובלת נשים ערביות ויהודיות — שמן זית, סחר הוגן ודו-קיום מאז 1996</p>
+      <a href="category.html" class="block-hero__cta">לחנות המוצרים</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Breadcrumb (always present)
+       ACF: auto-generated from page hierarchy
+       ============================================ -->
+  <div class="breadcrumb">
+    <div class="container">
+      <ul class="breadcrumb__list">
+        <li><a href="index.html">דף הבית</a></li>
+        <li><a href="about.html">אודות</a></li>
+        <li aria-current="page">עמותת סינדיאנת הגליל</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       BLOCK: Rich Text (WYSIWYG)
+       ACF: content (wysiwyg), max_width (narrow|wide|full)
+       ============================================ -->
+  <section class="block-richtext" data-width="narrow">
+    <div class="container">
+      <div class="block-richtext__content">
+        <h2>סינדיאנת הגליל — עסק חברתי לסחר הוגן</h2>
+        <p>סינדיאנת הגליל היא עמותה לסחר הוגן, הפועלת כעסק חברתי מאז שנת 1996. העמותה מקדמת שינוי חברתי באמצעות חיבור בין נשים ערביות ויהודיות, אשר הפיקות יחד שמן זית עטור פרסים.</p>
+        <p>כל הרווחים מהפעילות העסקית של העמותה, מושקעים במיזמים חברתיים, לעידוד תעסוקת נשים, ליישום כלכלה ירוקה בת קיימא, וליצירת גשר בין קהילות.</p>
+        <blockquote>
+          <p>״שמן הזית שלנו הוא לא רק מוצר — הוא סיפור של תקווה, שיתוף פעולה ודו-קיום. כל בקבוק מגשר בין קהילות ובונה עתיד משותף.״</p>
+          <cite>— חנאן מנאדרה זועבי, מנכ״לית</cite>
+        </blockquote>
+        <p>סינדיאנת הגליל יצרה סדרה חדשה של שמני זית פרמיום סחר הוגן, באמצעות שיתוף פעולה ייצא דופן: יום אחד, מסר אחד משותף — סינדיאנת הגליל הפגישה ילדים יהודים וערבים מאוחדים בשלל צבעים וצורות.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Text + Image (Side by Side)
+       ACF: image, content (wysiwyg), image_position (right|left)
+       ============================================ -->
+  <section class="block-text-image" data-image-position="right">
+    <div class="container">
+      <div class="block-text-image__grid">
+        <div class="block-text-image__text">
+          <h2>סחר הוגן — Fair Trade</h2>
+          <p>אנו היצרן והיצואן היחיד בישראל עם תו סחר הוגן מוסמך בינלאומי. אנו מוודאים שתנאי עבודה והכנסה הוגנים מתקיימים לאורך כל שרשרת הערך — מהחקלאי ועד הצרכן.</p>
+          <p>בוחרים את הספקים שלנו לא רק לפי איכות התוצרת, אלא גם לפי המצפון החברתי שלהם. כך, כל רכישה מסינדיאנה היא צעד לעבר עולם צודק יותר.</p>
+        </div>
+        <div class="block-text-image__media">
+          <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?w=600&h=500&fit=crop" alt="נשות סינדיאנה אורזות שמן זית" loading="lazy">
+          <span class="block-text-image__caption">נשות סינדיאנה בעבודה במפעל כפר כנא</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Text + Image (reversed — image LEFT)
+       ============================================ -->
+  <section class="block-text-image" data-image-position="left">
+    <div class="container">
+      <div class="block-text-image__grid">
+        <div class="block-text-image__text">
+          <h2>העצמת נשים ערביות</h2>
+          <p>אנחנו מאמינים שהעצמת נשים ערביות מובילה להעצמת החברה כולה. אנו מספקים הזדמנויות לנשים לפתח מיומנויות, גישה לייצור, הכשרה ושיווק — כדי שיהפכו לסוכנות שינוי בקהילותיהן.</p>
+          <p>הנשים שלנו מנהלות כל שלב בתהליך: מהקטיף, דרך העיבוד, ועד האריזה והשיווק. זו לא רק עבודה — זו עצמאות כלכלית ואישית.</p>
+        </div>
+        <div class="block-text-image__media">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=500&fit=crop" alt="נשים בכרם זיתים" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Video Embed
+       ACF: video_url (oembed), title, description
+       ============================================ -->
+  <section class="block-video">
+    <div class="container">
+      <div class="block-video__header">
+        <h2 class="block-video__title">גלו איך שמן זית יוצר תקווה</h2>
+        <p class="block-video__desc">סרטון קצר על הסיפור של סינדיאנת הגליל — שיתוף פעולה, סחר הוגן ושמן זית עטור פרסים</p>
+      </div>
+      <div class="block-video__wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="סינדיאנת הגליל — הסיפור שלנו" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Single Image (Full Width)
+       ACF: image, caption, alt, size (full|contained|side)
+       ============================================ -->
+  <section class="block-image" data-size="contained">
+    <div class="container">
+      <figure class="block-image__figure">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=1200&h=500&fit=crop" alt="כרם זיתים בגליל בשקיעה" loading="lazy">
+        <figcaption class="block-image__caption">כרמי הזיתים של סינדיאנה בגליל — שיתוף פעולה יהודי-ערבי שמניב שמן זית עטור פרסים</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Gallery
+       ACF: images (gallery), columns (2|3|4), lightbox (true|false)
+       ============================================ -->
+  <section class="block-gallery" data-columns="3">
+    <div class="container">
+      <h2 class="block-gallery__title">גלריית תמונות</h2>
+      <div class="block-gallery__grid">
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?w=400&h=300&fit=crop" alt="נשות סינדיאנה" loading="lazy">
+        </figure>
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop" alt="כרם זיתים" loading="lazy">
+        </figure>
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=300&fit=crop" alt="שדות הגליל" loading="lazy">
+        </figure>
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1501004318855-b174af8b1837?w=400&h=300&fit=crop" alt="מרכז מבקרים" loading="lazy">
+        </figure>
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&h=300&fit=crop" alt="צוות סינדיאנה" loading="lazy">
+        </figure>
+        <figure class="block-gallery__item">
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=300&fit=crop" alt="ייצור שמן זית" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Buttons Group
+       ACF: buttons (repeater): text, link, style (primary|secondary|outline), icon
+       ============================================ -->
+  <section class="block-buttons">
+    <div class="container">
+      <div class="block-buttons__wrap">
+        <a href="category.html" class="block-buttons__btn block-buttons__btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          לחנות המוצרים
+        </a>
+        <a href="#" class="block-buttons__btn block-buttons__btn--secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          מרכז מבקרים
+        </a>
+        <a href="#" class="block-buttons__btn block-buttons__btn--outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          צור קשר
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Accordion / FAQ
+       ACF: title, items (repeater): title, content
+       ============================================ -->
+  <section class="block-accordion">
+    <div class="container">
+      <h2 class="block-accordion__title">שאלות נפוצות</h2>
+      <div class="block-accordion__list">
+
+        <div class="block-accordion__item">
+          <button class="block-accordion__trigger" aria-expanded="false">
+            <span>מהו סחר הוגן?</span>
+            <svg class="block-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="block-accordion__panel" hidden>
+            <div class="block-accordion__content">
+              <p>סחר הוגן הוא מודל מסחרי שמבטיח תנאי עבודה והכנסה הוגנים ליצרנים ולחקלאים. בסינדיאנת הגליל, אנו מוודאים שכל שלב בשרשרת הערך — מהחקלאי הערבי בגליל ועד הצרכן — מבוסס על הוגנות, שקיפות וכבוד הדדי.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block-accordion__item">
+          <button class="block-accordion__trigger" aria-expanded="false">
+            <span>איך אפשר לבקר במרכז המבקרים?</span>
+            <svg class="block-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="block-accordion__panel" hidden>
+            <div class="block-accordion__content">
+              <p>מרכז המבקרים שלנו בכפר כנא פתוח לביקורים מתואמים מראש. ניתן להזמין ביקור מודרך, סדנת קלייה, ארוחה מהמטבח המקומי, או שילוב של כולם. לתיאום: 04-6516784 או דרך טופס צור קשר באתר.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block-accordion__item">
+          <button class="block-accordion__trigger" aria-expanded="false">
+            <span>האם שמן הזית שלכם אורגני?</span>
+            <svg class="block-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="block-accordion__panel" hidden>
+            <div class="block-accordion__content">
+              <p>חלק משמני הזית שלנו הם אורגניים מוסמכים. כרם הזיתים ״הנווה״ — פרויקט ייחודי של שיתוף פעולה יהודי-ערבי — מייצר שמן זית אורגני כתית מעולה. בנוסף, אנו מציעים שמני זית קונבנציונליים שעוברים בקרת איכות קפדנית.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="block-accordion__item">
+          <button class="block-accordion__trigger" aria-expanded="false">
+            <span>מהם אזורי המשלוח ותנאי ההזמנה?</span>
+            <svg class="block-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="block-accordion__panel" hidden>
+            <div class="block-accordion__content">
+              <p>אנו משלחים לכל רחבי הארץ. משלוח חינם בהזמנה מעל 299 ש״ח, משלוח רגיל 45 ש״ח, משלוח לדרום 35 ש״ח, ואיסוף עצמי חינם מחנות המפעל בכפר כנא. ניתן לשלם בכרטיס אשראי דרך מערכת סליקה מאובטחת.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Team / Cards
+       ACF: title, members (repeater): photo, name, role, bio
+       ============================================ -->
+  <section class="block-team">
+    <div class="container">
+      <h2 class="block-team__title">צוות העמותה</h2>
+      <p class="block-team__intro">נשים ערביות ויהודיות עובדות יחד בשוויון ובכבוד הדדי</p>
+      <div class="block-team__grid">
+
+        <div class="block-team__card">
+          <div class="block-team__photo">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face" alt="חנאן מנאדרה זועבי" loading="lazy">
+          </div>
+          <h3 class="block-team__name">חנאן מנאדרה זועבי</h3>
+          <span class="block-team__role">מנכ״לית</span>
+          <p class="block-team__bio">מובילה את סינדיאנה משנת 2003, חנאן הפכה את העמותה לשם דבר בינלאומי בעולם הסחר ההוגן.</p>
+        </div>
+
+        <div class="block-team__card">
+          <div class="block-team__photo">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face" alt="סברין חאזן" loading="lazy">
+          </div>
+          <h3 class="block-team__name">סברין חאזן</h3>
+          <span class="block-team__role">מנהלת שיווק</span>
+          <p class="block-team__bio">אחראית על בניית המותג, ניהול החנות המקוונת והקשרים עם לקוחות בארץ ובחו״ל.</p>
+        </div>
+
+        <div class="block-team__card">
+          <div class="block-team__photo">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&h=300&fit=crop&crop=face" alt="דני בן שמחון" loading="lazy">
+          </div>
+          <h3 class="block-team__name">דני בן שמחון</h3>
+          <span class="block-team__role">מנהל ייצור</span>
+          <p class="block-team__bio">מנהל את קו הייצור והאיכות. דני מבטיח שכל בקבוק שמן זית עומד בסטנדרטים הגבוהים ביותר.</p>
+        </div>
+
+        <div class="block-team__card">
+          <div class="block-team__photo">
+            <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face" alt="נעמה כהן" loading="lazy">
+          </div>
+          <h3 class="block-team__name">נעמה כהן</h3>
+          <span class="block-team__role">מנהלת מרכז מבקרים</span>
+          <p class="block-team__bio">מנהלת את מרכז המבקרים, את הסדנאות ואת חווית האירוח — וגורמת לכל מבקר להרגיש בבית.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Posts Grid
+       ACF: title, post_type, category, count, columns (2|3|4), show_date, show_excerpt
+       ============================================ -->
+  <section class="block-posts" data-columns="3">
+    <div class="container">
+      <div class="block-posts__header">
+        <h2 class="block-posts__title">חדשות ואירועים</h2>
+        <a href="#" class="block-posts__more">כל החדשות &larr;</a>
+      </div>
+      <div class="block-posts__grid">
+
+        <article class="block-posts__card">
+          <a href="#" class="block-posts__image">
+            <img src="https://images.unsplash.com/photo-1504185945330-7a3ca1380535?w=400&h=260&fit=crop" alt="" loading="lazy">
+            <span class="block-posts__category">אירועים</span>
+          </a>
+          <div class="block-posts__body">
+            <time class="block-posts__date" datetime="2026-04-15">15 אפריל, 2026</time>
+            <h3 class="block-posts__card-title"><a href="#">סדנת קלייה וטעימות שמן זית — פסח 2026</a></h3>
+            <p class="block-posts__excerpt">הצטרפו אלינו לסדנה מיוחדת לפסח במרכז המבקרים בכפר כנא. טעימות שמן זית, סדנת קלייה וארוחה מהמטבח המקומי.</p>
+          </div>
+        </article>
+
+        <article class="block-posts__card">
+          <a href="#" class="block-posts__image">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=260&fit=crop" alt="" loading="lazy">
+            <span class="block-posts__category">חדשות</span>
+          </a>
+          <div class="block-posts__body">
+            <time class="block-posts__date" datetime="2026-03-20">20 מרץ, 2026</time>
+            <h3 class="block-posts__card-title"><a href="#">שמן הזית שלנו זכה במדליית זהב בתחרות הבינלאומית</a></h3>
+            <p class="block-posts__excerpt">שמן הזית הפיקואל של סינדיאנת הגליל זכה במדליית זהב בתחרות NYIOOC העולמית — הפרס היוקרתי ביותר בענף.</p>
+          </div>
+        </article>
+
+        <article class="block-posts__card">
+          <a href="#" class="block-posts__image">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=260&fit=crop" alt="" loading="lazy">
+            <span class="block-posts__category">מתכונים</span>
+          </a>
+          <div class="block-posts__body">
+            <time class="block-posts__date" datetime="2026-03-10">10 מרץ, 2026</time>
+            <h3 class="block-posts__card-title"><a href="#">מתכון: סלט פטוש עם שמן זית כתית מעולה</a></h3>
+            <p class="block-posts__excerpt">מתכון קלאסי מהמטבח הערבי-גלילי — סלט פטוש רענן עם שמן זית כתית מעולה של סינדיאנת הגליל.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Divider / Spacer
+       ACF: style (line|space|dots), spacing (sm|md|lg)
+       ============================================ -->
+  <div class="block-divider" data-style="line" data-spacing="lg">
+    <div class="container">
+      <hr class="block-divider__line">
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       BLOCK: CTA Banner
+       ACF: title, text, bg_style (gold|olive|dark), button_text, button_link
+       ============================================ -->
+  <section class="block-cta" data-bg="gold">
+    <div class="container">
+      <div class="block-cta__inner">
+        <h2 class="block-cta__title">הצטרפו למסע שלנו</h2>
+        <p class="block-cta__text">כל רכישה מסינדיאנת הגליל תומכת בנשים, בקהילות ובחקלאות בת-קיימא בגליל. בואו להיות חלק מהשינוי.</p>
+        <div class="block-cta__actions">
+          <a href="category.html" class="block-cta__btn block-cta__btn--primary">לחנות</a>
+          <a href="#" class="block-cta__btn block-cta__btn--secondary">למרכז המבקרים</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Contact Form
+       ACF: title, description, form_id (CF7 select)
+       ============================================ -->
+  <section class="block-contact">
+    <div class="container">
+      <div class="block-contact__grid">
+        <div class="block-contact__info">
+          <h2 class="block-contact__title">צור קשר</h2>
+          <p class="block-contact__desc">נשמח לשמוע מכם! מלאו את הטופס ונחזור אליכם בהקדם.</p>
+          <ul class="block-contact__details">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>א.ת. כפר כנא, ליד ציפורי</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>04-6516784</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:sindyanna@sindyan.org.il">sindyanna@sindyan.org.il</a>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>א׳-ה׳ 08:00–16:00, ו׳ 08:00–12:00</span>
+            </li>
+          </ul>
+        </div>
+        <form class="block-contact__form" action="#" method="post">
+          <div class="block-contact__field">
+            <label for="contact-name">שם מלא *</label>
+            <input type="text" id="contact-name" name="name" required>
+          </div>
+          <div class="block-contact__field">
+            <label for="contact-email">דוא״ל *</label>
+            <input type="email" id="contact-email" name="email" required>
+          </div>
+          <div class="block-contact__field">
+            <label for="contact-phone">טלפון</label>
+            <input type="tel" id="contact-phone" name="phone">
+          </div>
+          <div class="block-contact__field block-contact__field--full">
+            <label for="contact-subject">נושא</label>
+            <select id="contact-subject" name="subject">
+              <option value="">בחרו נושא</option>
+              <option value="order">שאלה על הזמנה</option>
+              <option value="visit">תיאום ביקור / סדנה</option>
+              <option value="wholesale">הזמנות סיטונאיות</option>
+              <option value="press">עיתונות ותקשורת</option>
+              <option value="other">אחר</option>
+            </select>
+          </div>
+          <div class="block-contact__field block-contact__field--full">
+            <label for="contact-message">תוכן ההודעה *</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="block-contact__field block-contact__field--full">
+            <label class="block-contact__checkbox">
+              <input type="checkbox" name="newsletter" checked>
+              <span>שלחו לי עדכונים על מבצעים וסדנאות</span>
+            </label>
+          </div>
+          <button type="submit" class="block-contact__submit">שליחה</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Map
+       ACF: title, address, lat, lng, zoom_level, height
+       ============================================ -->
+  <section class="block-map">
+    <div class="container">
+      <h2 class="block-map__title">מיקום מרכז המבקרים</h2>
+      <p class="block-map__address">א.ת. כפר כנא, הצמוד לכביש 77, 5 דק׳ מצומת בית רימון</p>
+    </div>
+    <div class="block-map__embed">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.8!2d35.3447!3d32.7506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQ1JzAyLjIiTiAzNcKwMjAnNDEuMCJF!5e0!3m2!1siw!2sil!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       BLOCK: Testimonials
+       ACF: title, quotes (repeater): text, author, source
+       ============================================ -->
+  <section class="block-testimonials">
+    <div class="container">
+      <h2 class="block-testimonials__title">מה אומרים עלינו</h2>
+      <div class="block-testimonials__grid">
+        <div class="block-testimonials__card">
+          <div class="block-testimonials__quote">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-gold)" opacity="0.3"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="block-testimonials__text">שמן הזית הכי טעים שטעמתי! ומרגיש טוב לדעת שהרכישה תורמת לקהילה ולדו-קיום. ממליצה בחום.</p>
+          <div class="block-testimonials__author">
+            <strong>מיכל לוי</strong>
+            <span>לקוחה קבועה, תל אביב</span>
+          </div>
+        </div>
+        <div class="block-testimonials__card">
+          <div class="block-testimonials__quote">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-gold)" opacity="0.3"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="block-testimonials__text">הביקור במרכז המבקרים היה חוויה מדהימה. סדנת הבישול, הטעימות, והסיפור המרגש של העמותה — ממליץ לכל משפחה!</p>
+          <div class="block-testimonials__author">
+            <strong>אבי כהן</strong>
+            <span>מבקר, חיפה</span>
+          </div>
+        </div>
+        <div class="block-testimonials__card">
+          <div class="block-testimonials__quote">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--color-gold)" opacity="0.3"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <p class="block-testimonials__text">אנחנו מזמינים את המארזים לעובדים כל חג. האיכות יוצאת דופן, האריזה יפהפייה, והתגובות תמיד מלהיבות.</p>
+          <div class="block-testimonials__author">
+            <strong>רונית שרביט</strong>
+            <span>מנהלת HR, חברת הייטק</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="site-footer__logo">
+        <img src="img/Sindyana_logo.svg" alt="סינדיאנת הגליל" class="site-footer__logo-img">
+      </div>
+      <hr class="site-footer__divider">
+      <div class="site-footer__main">
+        <div class="site-footer__info">
+          <ul class="site-footer__details">
+            <li>סינדיאנה – א.ת. כפר כנא – טל. 04-6516784</li>
+            <li><a href="mailto:sindyanna@sindyan.org.il">sindyanna@sindyan.org.il</a></li>
+            <li>כתובת למשלוח דואר: ת.ד. 5134 תל אביב 6105101</li>
+            <li><strong>לפרטים נוספים:</strong></li>
+            <li>חנאן מנאדרה זועבי, נייד 050-4009455 , דני בן שמחון, נייד 050-4330039</li>
+          </ul>
+          <div class="site-footer__social">
+            <a href="#" aria-label="Facebook"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+        </div>
+        <div class="site-footer__icon">
+          <img src="img/Footer-icon.png" alt="" class="site-footer__icon-img">
+        </div>
+        <div class="site-footer__nav">
+          <ul class="site-footer__nav-col"><li><a href="about.html">אודות</a></li><li><a href="#">מרכז מבקרים</a></li><li><a href="#">חדשות ואירועים</a></li><li><a href="#">פרוייקטים</a></li></ul>
+          <ul class="site-footer__nav-col"><li><a href="category.html">חנות מקוונת</a></li><li><a href="account.html">מועדון לקוחות</a></li><li><a href="#">צור קשר</a></li></ul>
+          <ul class="site-footer__nav-col"><li><a href="#">מפת האתר</a></li><li><a href="#"><strong>הצהרת נגישות</strong></a></li></ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Block-specific JS for accordion and gallery lightbox -->
+  <script>
+  (function() {
+    /* === Accordion === */
+    document.querySelectorAll('.block-accordion__trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var panel = this.nextElementSibling;
+
+        // Close all others in this accordion
+        var accordion = this.closest('.block-accordion__list');
+        accordion.querySelectorAll('.block-accordion__trigger').forEach(function(other) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.hidden = true;
+        });
+
+        if (!expanded) {
+          this.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+        }
+      });
+    });
+
+    /* === Gallery Lightbox === */
+    var galleryItems = document.querySelectorAll('.block-gallery__item img');
+    galleryItems.forEach(function(img) {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function() {
+        var overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.innerHTML = '<div class="lightbox-overlay__backdrop"></div>' +
+          '<div class="lightbox-overlay__content">' +
+          '<button class="lightbox-overlay__close" aria-label="סגירה">&times;</button>' +
+          '<img src="' + this.src.replace(/w=\d+/, 'w=1200').replace(/h=\d+/, 'h=900') + '" alt="' + this.alt + '">' +
+          '</div>';
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function() { overlay.classList.add('lightbox-overlay--active'); });
+
+        function closeLightbox() {
+          overlay.classList.remove('lightbox-overlay--active');
+          setTimeout(function() {
+            document.body.removeChild(overlay);
+            document.body.style.overflow = '';
+          }, 300);
+        }
+        overlay.querySelector('.lightbox-overlay__close').addEventListener('click', closeLightbox);
+        overlay.querySelector('.lightbox-overlay__backdrop').addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', function handler(e) {
+          if (e.key === 'Escape') { closeLightbox(); document.removeEventListener('keydown', handler); }
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
