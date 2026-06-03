@@ -631,24 +631,89 @@
   </footer>
 
   <!-- ============================================
-       POPUP SYSTEM
-       Custom popup/modal — no plugin
-       ACF Fields per popup:
-         popup_id (text), popup_type (select: club-signup|exit-intent|promo|welcome),
-         title (text), subtitle (textarea), image_desktop (image), image_mobile (image),
-         cta_text (text), cta_link (url), cta_style (select: primary|secondary),
-         secondary_cta_text (text), secondary_cta_link (url),
-         bg_color (color picker), text_color (color picker),
-         trigger_type (select: exit-intent|timed|scroll|click|page-load),
-         trigger_delay (number, seconds), trigger_scroll (number, % of page),
-         show_to (select: all|non-members|members),
-         display_frequency (select: once|session|always),
-         is_active (true/false toggle),
-         close_text (text — optional dismiss link text)
+       POPUP SYSTEM — Full ACF Control
+       Custom popup/modal — no plugin, fully configurable
+
+       ACF Fields per popup (Options Page → Popups repeater):
+       ─────────────────────────────────────────────
+       CONTENT:
+         popup_id (text)                    — unique ID
+         popup_type (select)                — club-signup | exit-intent | promo | welcome | custom
+         title (text)                       — popup heading
+         subtitle (textarea)                — description text
+         image_desktop (image)              — image for desktop (different crop possible)
+         image_mobile (image)               — image for mobile (different aspect ratio)
+         cta_text (text)                    — primary button text
+         cta_link (url)                     — primary button link
+         cta_style (select)                 — primary | secondary
+         secondary_cta_text (text)          — optional second button
+         secondary_cta_link (url)           — second button link
+         dismiss_text (text)                — dismiss link text ("לא תודה" etc.)
+         show_form (true/false)             — show signup form in popup
+         form_fields (checkbox)             — name | email | phone
+
+       APPEARANCE:
+         bg_color (color picker)            — popup background color
+         text_color (color picker)          — text color override
+         overlay_opacity (range 0-100)      — backdrop darkness (default 60)
+         animation (select)                 — slide-up | fade | scale | slide-right
+         position (select)                  — center | bottom | top | bottom-right
+         size (select)                      — default | compact | fullscreen
+         border_radius (number)             — corner roundness in px
+
+       TRIGGERS:
+         trigger_type (select)              — timed | scroll | exit-intent | click | page-load | inactivity
+         trigger_delay (number)             — seconds before showing (timed trigger)
+         trigger_scroll (number)            — % of page scrolled (scroll trigger)
+         trigger_inactivity (number)        — seconds of no mouse/keyboard (inactivity trigger)
+         min_time_on_page (number)          — minimum seconds on page before ANY trigger fires
+
+       TARGETING:
+         show_to (select)                   — all | non-members | members | first-visit | returning
+         target_pages (checkbox/repeater)   — all | home | product | category | cart | checkout | custom-url
+         target_pages_urls (repeater)       — specific page URLs to show on
+         exclude_pages (repeater)           — page URLs to exclude
+         target_device (select)             — all | desktop | mobile | tablet
+
+       FREQUENCY:
+         frequency (select)                 — once | session | always | custom
+         max_displays (number)              — max times to show total (0 = unlimited)
+         max_displays_per_session (number)  — max times per visit
+         cooldown_hours (number)            — hours between re-displays (e.g., 24 = once per day)
+         cookie_days (number)               — how many days to remember "once" (default 30)
+
+       SCHEDULING:
+         is_active (true/false)             — master on/off toggle
+         schedule_start (date/time)         — don't show before this date
+         schedule_end (date/time)           — don't show after this date
+         schedule_days (checkbox)           — Mon-Sun (show only on certain days)
+         schedule_hours_start (time)        — show only after this hour
+         schedule_hours_end (time)          — show only before this hour
+
+       PRIORITY:
+         priority (number)                  — if multiple popups qualify, highest priority wins
        ============================================ -->
 
   <!-- POPUP 1: Club Signup -->
-  <div class="popup" id="popup-club-signup" data-popup-type="club-signup" data-trigger="timed" data-trigger-delay="15" data-show-to="non-members" data-frequency="once" role="dialog" aria-modal="true" aria-labelledby="popup-club-title">
+  <div class="popup" id="popup-club-signup"
+       data-popup-type="club-signup"
+       data-trigger="timed"
+       data-trigger-delay="15"
+       data-min-time="5"
+       data-show-to="non-members"
+       data-frequency="custom"
+       data-max-displays="3"
+       data-cooldown-hours="24"
+       data-cookie-days="30"
+       data-target-device="all"
+       data-target-pages="all"
+       data-overlay-opacity="60"
+       data-animation="slide-up"
+       data-position="center"
+       data-size="default"
+       data-priority="10"
+       data-active="true"
+       role="dialog" aria-modal="true" aria-labelledby="popup-club-title">
     <div class="popup__backdrop"></div>
     <div class="popup__container">
       <button class="popup__close" aria-label="סגירה">&times;</button>
@@ -679,7 +744,24 @@
   </div>
 
   <!-- POPUP 2: Exit Intent -->
-  <div class="popup" id="popup-exit-intent" data-popup-type="exit-intent" data-trigger="exit-intent" data-show-to="all" data-frequency="session" role="dialog" aria-modal="true" aria-labelledby="popup-exit-title">
+  <div class="popup" id="popup-exit-intent"
+       data-popup-type="exit-intent"
+       data-trigger="exit-intent"
+       data-min-time="10"
+       data-show-to="all"
+       data-frequency="session"
+       data-max-displays="1"
+       data-cooldown-hours="48"
+       data-cookie-days="7"
+       data-target-device="desktop"
+       data-target-pages="product,category,cart"
+       data-overlay-opacity="65"
+       data-animation="scale"
+       data-position="center"
+       data-size="default"
+       data-priority="20"
+       data-active="true"
+       role="dialog" aria-modal="true" aria-labelledby="popup-exit-title">
     <div class="popup__backdrop"></div>
     <div class="popup__container">
       <button class="popup__close" aria-label="סגירה">&times;</button>
@@ -703,7 +785,27 @@
   </div>
 
   <!-- POPUP 3: Promo (generic, ACF-controlled) -->
-  <div class="popup" id="popup-promo" data-popup-type="promo" data-trigger="scroll" data-trigger-scroll="50" data-show-to="all" data-frequency="once" role="dialog" aria-modal="true" aria-labelledby="popup-promo-title">
+  <div class="popup" id="popup-promo"
+       data-popup-type="promo"
+       data-trigger="scroll"
+       data-trigger-scroll="50"
+       data-min-time="5"
+       data-show-to="all"
+       data-frequency="once"
+       data-max-displays="0"
+       data-cooldown-hours="0"
+       data-cookie-days="14"
+       data-target-device="all"
+       data-target-pages="all"
+       data-schedule-start=""
+       data-schedule-end=""
+       data-overlay-opacity="60"
+       data-animation="fade"
+       data-position="center"
+       data-size="compact"
+       data-priority="5"
+       data-active="true"
+       role="dialog" aria-modal="true" aria-labelledby="popup-promo-title">
     <div class="popup__backdrop"></div>
     <div class="popup__container popup__container--compact">
       <button class="popup__close" aria-label="סגירה">&times;</button>
@@ -723,73 +825,202 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Popup System JS -->
+  <!-- Popup System JS — Full Control Engine -->
   <script>
   (function() {
     'use strict';
 
-    // Popup Manager
+    var pageLoadTime = Date.now();
+
+    // ========================================
+    // POPUP MANAGER — Full ACF Control Engine
+    // ========================================
     var PopupManager = {
       activePopup: null,
+      popups: [],        // all popup elements sorted by priority
+      scrollTriggered: {},
+      inactivityTimer: null,
+      lastActivity: Date.now(),
 
+      // ---- INIT ----
       init: function() {
         var self = this;
 
-        // Bind close buttons
+        // Collect all popups sorted by priority (highest first)
+        this.popups = Array.from(document.querySelectorAll('.popup[data-active="true"]'));
+        this.popups.sort(function(a, b) {
+          return (parseInt(b.dataset.priority) || 0) - (parseInt(a.dataset.priority) || 0);
+        });
+
+        // Bind close buttons and backdrop
         document.querySelectorAll('.popup__close, .popup__dismiss, .popup__backdrop').forEach(function(el) {
           el.addEventListener('click', function() { self.close(); });
         });
 
-        // Bind triggers from links (e.g., "Join the club" link)
+        // Bind click triggers from links (e.g., data-popup-trigger="club-signup")
         document.querySelectorAll('[data-popup-trigger]').forEach(function(el) {
           el.addEventListener('click', function(e) {
             e.preventDefault();
-            self.open('popup-' + el.getAttribute('data-popup-trigger'));
+            self.open('popup-' + el.getAttribute('data-popup-trigger'), true);
           });
         });
 
-        // Close on Escape
+        // Close on Escape key
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape' && self.activePopup) self.close();
         });
 
-        // Init auto-triggers
+        // Init all trigger types
         this.initTimedTriggers();
         this.initScrollTriggers();
         this.initExitIntentTrigger();
+        this.initInactivityTriggers();
+        this.initPageLoadTriggers();
+
+        // Track activity for inactivity trigger
+        ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(function(evt) {
+          document.addEventListener(evt, function() { self.lastActivity = Date.now(); }, { passive: true });
+        });
       },
 
-      open: function(id) {
+      // ---- VALIDATION: Can this popup be shown? ----
+      canShow: function(popup) {
+        var id = popup.id;
+        var d = popup.dataset;
+
+        // 1. Active toggle
+        if (d.active === 'false') return false;
+
+        // 2. Schedule: start/end dates
+        var now = new Date();
+        if (d.scheduleStart && new Date(d.scheduleStart) > now) return false;
+        if (d.scheduleEnd && new Date(d.scheduleEnd) < now) return false;
+
+        // 3. Schedule: days of week (0=Sun, 1=Mon...6=Sat)
+        if (d.scheduleDays) {
+          var allowedDays = d.scheduleDays.split(',').map(Number);
+          if (allowedDays.length && allowedDays.indexOf(now.getDay()) === -1) return false;
+        }
+
+        // 4. Schedule: hours of day
+        if (d.scheduleHoursStart || d.scheduleHoursEnd) {
+          var currentHour = now.getHours();
+          var startH = parseInt(d.scheduleHoursStart) || 0;
+          var endH = parseInt(d.scheduleHoursEnd) || 24;
+          if (currentHour < startH || currentHour >= endH) return false;
+        }
+
+        // 5. Device targeting
+        var device = d.targetDevice || 'all';
+        if (device !== 'all') {
+          var w = window.innerWidth;
+          var isMobile = w <= 768;
+          var isTablet = w > 768 && w <= 1100;
+          var isDesktop = w > 1100;
+          if (device === 'mobile' && !isMobile) return false;
+          if (device === 'tablet' && !isTablet) return false;
+          if (device === 'desktop' && !isDesktop) return false;
+        }
+
+        // 6. Page targeting
+        var pages = d.targetPages || 'all';
+        if (pages !== 'all') {
+          var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+          var allowed = pages.split(',').map(function(p) { return p.trim(); });
+          var matched = allowed.some(function(p) {
+            return currentPath.indexOf(p) !== -1;
+          });
+          if (!matched) return false;
+        }
+
+        // 7. User targeting (members/non-members/first-visit/returning)
+        var showTo = d.showTo || 'all';
+        var isMember = document.body.classList.contains('is-member');
+        if (showTo === 'members' && !isMember) return false;
+        if (showTo === 'non-members' && isMember) return false;
+        if (showTo === 'first-visit' && localStorage.getItem('sindyanna_visited')) return false;
+        if (showTo === 'returning' && !localStorage.getItem('sindyanna_visited')) return false;
+
+        // 8. Frequency: "once" with cookie days
+        var storageKey = 'popup_' + id;
+        var freq = d.frequency || 'once';
+
+        if (freq === 'once') {
+          var seenData = this.getPopupData(id);
+          if (seenData && seenData.dismissed) return false;
+        }
+
+        // 9. Frequency: "session"
+        if (freq === 'session') {
+          if (sessionStorage.getItem(storageKey + '_session')) return false;
+        }
+
+        // 10. Max total displays
+        var maxDisplays = parseInt(d.maxDisplays) || 0;
+        if (maxDisplays > 0) {
+          var data = this.getPopupData(id);
+          if (data && data.count >= maxDisplays) return false;
+        }
+
+        // 11. Cooldown hours between displays
+        var cooldown = parseFloat(d.cooldownHours) || 0;
+        if (cooldown > 0) {
+          var lastData = this.getPopupData(id);
+          if (lastData && lastData.lastShown) {
+            var hoursSince = (Date.now() - lastData.lastShown) / (1000 * 60 * 60);
+            if (hoursSince < cooldown) return false;
+          }
+        }
+
+        // 12. Minimum time on page
+        var minTime = parseInt(d.minTime) || 0;
+        if (minTime > 0) {
+          var timeOnPage = (Date.now() - pageLoadTime) / 1000;
+          if (timeOnPage < minTime) return false;
+        }
+
+        return true;
+      },
+
+      // ---- OPEN POPUP ----
+      open: function(id, isManual) {
+        if (this.activePopup) return; // one popup at a time
+
         var popup = document.getElementById(id);
         if (!popup) return;
 
-        // Check frequency (once / session)
-        var freq = popup.getAttribute('data-frequency');
-        var storageKey = 'popup_seen_' + id;
-        if (freq === 'once' && localStorage.getItem(storageKey)) return;
-        if (freq === 'session' && sessionStorage.getItem(storageKey)) return;
+        // Skip validation for manual triggers (click)
+        if (!isManual && !this.canShow(popup)) return;
 
-        // Check show-to (non-members / members / all)
-        // In static prototype, we treat everyone as non-member
-        var showTo = popup.getAttribute('data-show-to');
-        var isMember = document.body.classList.contains('is-member');
-        if (showTo === 'members' && !isMember) return;
-        if (showTo === 'non-members' && isMember) return;
+        var d = popup.dataset;
 
-        // Show popup
+        // Apply dynamic overlay opacity
+        var opacity = parseInt(d.overlayOpacity) || 60;
+        var backdrop = popup.querySelector('.popup__backdrop');
+        if (backdrop) backdrop.style.background = 'rgba(29,29,27,' + (opacity / 100) + ')';
+
+        // Apply animation class
+        var anim = d.animation || 'slide-up';
+        popup.setAttribute('data-anim', anim);
+
+        // Apply position class
+        var pos = d.position || 'center';
+        popup.setAttribute('data-position', pos);
+
+        // Show
         popup.classList.add('popup--active');
         document.body.style.overflow = 'hidden';
         this.activePopup = popup;
 
-        // Mark as seen
-        if (freq === 'once') localStorage.setItem(storageKey, '1');
-        if (freq === 'session') sessionStorage.setItem(storageKey, '1');
+        // Record display
+        this.recordDisplay(id);
 
-        // Focus trap — focus the close button
+        // Focus the close button for accessibility
         var closeBtn = popup.querySelector('.popup__close');
-        if (closeBtn) closeBtn.focus();
+        if (closeBtn) setTimeout(function() { closeBtn.focus(); }, 100);
       },
 
+      // ---- CLOSE POPUP ----
       close: function() {
         if (!this.activePopup) return;
         this.activePopup.classList.remove('popup--active');
@@ -797,64 +1028,155 @@
         this.activePopup = null;
       },
 
-      // Timed triggers (data-trigger="timed" data-trigger-delay="15")
+      // ---- STORAGE: popup display tracking ----
+      getPopupData: function(id) {
+        try {
+          var raw = localStorage.getItem('popup_' + id);
+          return raw ? JSON.parse(raw) : null;
+        } catch(e) { return null; }
+      },
+
+      recordDisplay: function(id) {
+        var popup = document.getElementById(id);
+        if (!popup) return;
+        var d = popup.dataset;
+        var freq = d.frequency || 'once';
+
+        // Session tracking
+        sessionStorage.setItem('popup_' + id + '_session', '1');
+
+        // Persistent tracking
+        var data = this.getPopupData(id) || { count: 0, dismissed: false, lastShown: 0 };
+        data.count++;
+        data.lastShown = Date.now();
+
+        if (freq === 'once') data.dismissed = true;
+
+        // Set with expiry via cookie-days
+        var cookieDays = parseInt(d.cookieDays) || 30;
+        try {
+          localStorage.setItem('popup_' + id, JSON.stringify(data));
+          // Set expiry marker
+          localStorage.setItem('popup_' + id + '_exp', Date.now() + (cookieDays * 24 * 60 * 60 * 1000));
+        } catch(e) {}
+
+        // Mark visitor as returning
+        localStorage.setItem('sindyanna_visited', '1');
+      },
+
+      // Clean expired popup data on init
+      cleanExpired: function() {
+        for (var i = localStorage.length - 1; i >= 0; i--) {
+          var key = localStorage.key(i);
+          if (key && key.indexOf('popup_') === 0 && key.indexOf('_exp') > 0) {
+            var exp = parseInt(localStorage.getItem(key));
+            if (exp && Date.now() > exp) {
+              var baseKey = key.replace('_exp', '');
+              localStorage.removeItem(baseKey);
+              localStorage.removeItem(key);
+            }
+          }
+        }
+      },
+
+      // ---- TRIGGER: Timed ----
       initTimedTriggers: function() {
         var self = this;
-        document.querySelectorAll('.popup[data-trigger="timed"]').forEach(function(popup) {
-          var delay = parseInt(popup.getAttribute('data-trigger-delay') || '10', 10);
+        this.popups.forEach(function(popup) {
+          if (popup.dataset.trigger !== 'timed') return;
+          var delay = parseInt(popup.dataset.triggerDelay) || 10;
           setTimeout(function() {
             if (!self.activePopup) self.open(popup.id);
           }, delay * 1000);
         });
       },
 
-      // Scroll triggers (data-trigger="scroll" data-trigger-scroll="50")
+      // ---- TRIGGER: Scroll % ----
       initScrollTriggers: function() {
         var self = this;
-        var scrollPopups = document.querySelectorAll('.popup[data-trigger="scroll"]');
+        var scrollPopups = this.popups.filter(function(p) { return p.dataset.trigger === 'scroll'; });
         if (!scrollPopups.length) return;
 
-        var triggered = {};
         window.addEventListener('scroll', function() {
+          if (self.activePopup) return;
           var scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
           scrollPopups.forEach(function(popup) {
-            if (triggered[popup.id]) return;
-            var threshold = parseInt(popup.getAttribute('data-trigger-scroll') || '50', 10);
-            if (scrollPct >= threshold && !self.activePopup) {
-              triggered[popup.id] = true;
+            if (self.scrollTriggered[popup.id]) return;
+            var threshold = parseInt(popup.dataset.triggerScroll) || 50;
+            if (scrollPct >= threshold) {
+              self.scrollTriggered[popup.id] = true;
               self.open(popup.id);
             }
           });
         }, { passive: true });
       },
 
-      // Exit intent (data-trigger="exit-intent")
+      // ---- TRIGGER: Exit Intent ----
       initExitIntentTrigger: function() {
         var self = this;
-        var exitPopups = document.querySelectorAll('.popup[data-trigger="exit-intent"]');
+        var exitPopups = this.popups.filter(function(p) { return p.dataset.trigger === 'exit-intent'; });
         if (!exitPopups.length) return;
 
         var triggered = false;
+
+        // Desktop: mouse leaves viewport at top
         document.addEventListener('mouseout', function(e) {
           if (triggered || self.activePopup) return;
           if (e.clientY <= 5 && e.relatedTarget == null) {
-            triggered = true;
-            // Open the first available exit-intent popup
-            self.open(exitPopups[0].id);
+            // Find first valid exit popup
+            for (var i = 0; i < exitPopups.length; i++) {
+              if (self.canShow(exitPopups[i])) {
+                triggered = true;
+                self.open(exitPopups[i].id);
+                break;
+              }
+            }
           }
         });
 
-        // Mobile: detect back gesture / tab switch (visibilitychange)
-        document.addEventListener('visibilitychange', function() {
-          if (document.visibilityState === 'hidden' && !triggered && !self.activePopup) {
-            // Don't show on mobile visibilitychange — too aggressive
-            // Could be used for analytics instead
-          }
+        // Mobile: back button / tab switch detection
+        // (intentionally conservative — only fires once)
+        var mobileTriggered = false;
+        window.addEventListener('beforeunload', function() {
+          if (mobileTriggered || triggered) return;
+          // Can't actually show popup during beforeunload,
+          // but could use for analytics beacon
+        });
+      },
+
+      // ---- TRIGGER: Inactivity ----
+      initInactivityTriggers: function() {
+        var self = this;
+        var inactivePopups = this.popups.filter(function(p) { return p.dataset.trigger === 'inactivity'; });
+        if (!inactivePopups.length) return;
+
+        setInterval(function() {
+          if (self.activePopup) return;
+          var idleSeconds = (Date.now() - self.lastActivity) / 1000;
+          inactivePopups.forEach(function(popup) {
+            var threshold = parseInt(popup.dataset.triggerInactivity) || 30;
+            if (idleSeconds >= threshold) {
+              self.open(popup.id);
+            }
+          });
+        }, 2000);
+      },
+
+      // ---- TRIGGER: Page Load (immediate after min-time) ----
+      initPageLoadTriggers: function() {
+        var self = this;
+        this.popups.forEach(function(popup) {
+          if (popup.dataset.trigger !== 'page-load') return;
+          var minTime = parseInt(popup.dataset.minTime) || 0;
+          setTimeout(function() {
+            if (!self.activePopup) self.open(popup.id);
+          }, minTime * 1000);
         });
       }
     };
 
-    // Init immediately if DOM is ready, otherwise wait
+    // Clean expired data and init
+    PopupManager.cleanExpired();
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function() { PopupManager.init(); });
     } else {
