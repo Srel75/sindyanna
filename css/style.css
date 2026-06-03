@@ -2497,6 +2497,65 @@ button {
   margin-top: var(--space-xs);
 }
 
+/* ---- Dual Pricing: Member/Club Price ---- */
+.product__member-price {
+  background: var(--color-cream);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 8px;
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.product__member-price-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.product__member-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.product__member-label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-olive-700);
+}
+
+.product__member-value {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.product__member-save {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-white);
+  background: var(--color-gold);
+  padding: 0.15em 0.6em;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.product__member-join {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.product__member-join:hover {
+  color: var(--color-black);
+}
+
 .product__actions {
   display: flex;
   align-items: center;
@@ -3522,6 +3581,28 @@ button {
   padding: 0.15em 0.6em;
   border-radius: 4px;
   letter-spacing: 0.03em;
+}
+
+/* Category Card: Member Pricing */
+.cat-card__member-price {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  margin-top: calc(-1 * var(--space-sm));
+}
+
+.cat-card__member-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-olive-500);
+}
+
+.cat-card__member-value {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gold);
 }
 
 /* Category Card Actions */
@@ -8248,5 +8329,347 @@ button {
   .block-accordion__trigger {
     font-size: 1rem;
     padding: var(--space-md) 0;
+  }
+}
+
+
+/* ============================================
+   POPUP / MODAL SYSTEM
+   Custom popup — no plugin, fully ACF-controlled
+   ============================================ */
+
+/* Popup wrapper — hidden by default */
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: var(--space-lg);
+}
+
+.popup--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Backdrop */
+.popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(29, 29, 27, 0.6);
+  cursor: pointer;
+}
+
+/* Container */
+.popup__container {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: popupSlideUp 0.4s ease both;
+}
+
+.popup__container--compact {
+  max-width: 480px;
+}
+
+@keyframes popupSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Close button */
+.popup__close {
+  position: absolute;
+  top: var(--space-md);
+  inset-inline-end: var(--space-md);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--color-olive-700);
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease;
+  line-height: 1;
+}
+
+.popup__close:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Body — image + content side by side */
+.popup__body {
+  display: flex;
+  min-height: 400px;
+}
+
+.popup__body--centered {
+  justify-content: center;
+}
+
+/* Image side */
+.popup__image {
+  flex: 0 0 45%;
+  max-width: 45%;
+  position: relative;
+  overflow: hidden;
+}
+
+.popup__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Desktop / Mobile image toggle */
+.popup__img--mobile {
+  display: none;
+}
+
+/* Content side */
+.popup__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+
+.popup__content--full {
+  flex: 1;
+  padding: var(--space-3xl) var(--space-2xl);
+}
+
+.popup__logo {
+  margin-inline: auto;
+  margin-bottom: var(--space-lg);
+}
+
+.popup__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.popup__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+}
+
+.popup__text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-olive-700);
+  margin-bottom: var(--space-xl);
+}
+
+/* Popup form */
+.popup__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.popup__form-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.popup__input {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-black);
+  background: var(--color-cream);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.popup__input:focus {
+  border-color: var(--color-gold);
+}
+
+.popup__input--full {
+  width: 100%;
+}
+
+/* CTA buttons */
+.popup__cta {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.popup__cta--primary {
+  background: var(--color-gold);
+  color: var(--color-white);
+}
+
+.popup__cta--primary:hover {
+  background: var(--color-gold-dark, #b8973f);
+  transform: translateY(-1px);
+}
+
+.popup__cta--secondary {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.popup__cta--secondary:hover {
+  background: var(--color-olive-900);
+}
+
+/* Dismiss link */
+.popup__dismiss {
+  display: block;
+  margin-top: var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-olive-400);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-inline: auto;
+  transition: color 0.2s ease;
+}
+
+.popup__dismiss:hover {
+  color: var(--color-black);
+}
+
+
+/* ---- Popup Responsive ---- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .popup {
+    padding: var(--space-md);
+    align-items: flex-end;
+  }
+
+  .popup__container {
+    max-width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .popup__body {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  /* Switch to mobile image */
+  .popup__img--desktop {
+    display: none;
+  }
+
+  .popup__img--mobile {
+    display: block;
+  }
+
+  .popup__image {
+    flex: none;
+    max-width: 100%;
+    height: 200px;
+  }
+
+  .popup__content {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .popup__form-row {
+    flex-direction: column;
+  }
+
+  @keyframes popupSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Mobile small */
+@media (max-width: 480px) {
+  .popup__container {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .popup__image {
+    height: 160px;
+  }
+
+  .popup__content {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .popup__title {
+    font-size: 1.4rem;
+  }
+
+  .popup__text {
+    font-size: 0.88rem;
+  }
+
+  .popup__input {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .popup__cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
   }
 }

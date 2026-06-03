@@ -215,6 +215,7 @@
           </div>
 
           <!-- Price & Add to Cart -->
+          <!-- ACF: regular_price, sale_price, member_price, price_per_unit, is_sale -->
           <div class="product__purchase">
             <div class="product__price-block product__price-block--sale">
               <!-- SALE STATE: original price crossed out + sale price + badge -->
@@ -225,6 +226,20 @@
               <span class="product__price">&#8362;89</span>
               -->
               <span class="product__price-per">מחיר ל-100 מ״ל 11.87 &#8362;</span>
+            </div>
+            <!-- DUAL PRICING: Member/Club price -->
+            <!-- ACF: member_price, show_member_price (toggle) -->
+            <!-- Shown to NON-MEMBERS. Hidden when user is logged in as member. -->
+            <div class="product__member-price">
+              <div class="product__member-price-row">
+                <svg class="product__member-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="product__member-label">מחיר לחברי מועדון:</span>
+                <span class="product__member-value">&#8362;59</span>
+                <span class="product__member-save">חיסכון של &#8362;10</span>
+              </div>
+              <a href="#" class="product__member-join" data-popup-trigger="club-signup">
+                עדיין לא חבר/ה? הצטרפו למועדון &rsaquo;
+              </a>
             </div>
             <div class="product__actions">
               <div class="product__quantity">
@@ -615,8 +630,236 @@
     </div>
   </footer>
 
+  <!-- ============================================
+       POPUP SYSTEM
+       Custom popup/modal — no plugin
+       ACF Fields per popup:
+         popup_id (text), popup_type (select: club-signup|exit-intent|promo|welcome),
+         title (text), subtitle (textarea), image_desktop (image), image_mobile (image),
+         cta_text (text), cta_link (url), cta_style (select: primary|secondary),
+         secondary_cta_text (text), secondary_cta_link (url),
+         bg_color (color picker), text_color (color picker),
+         trigger_type (select: exit-intent|timed|scroll|click|page-load),
+         trigger_delay (number, seconds), trigger_scroll (number, % of page),
+         show_to (select: all|non-members|members),
+         display_frequency (select: once|session|always),
+         is_active (true/false toggle),
+         close_text (text — optional dismiss link text)
+       ============================================ -->
+
+  <!-- POPUP 1: Club Signup -->
+  <div class="popup" id="popup-club-signup" data-popup-type="club-signup" data-trigger="timed" data-trigger-delay="15" data-show-to="non-members" data-frequency="once" role="dialog" aria-modal="true" aria-labelledby="popup-club-title">
+    <div class="popup__backdrop"></div>
+    <div class="popup__container">
+      <button class="popup__close" aria-label="סגירה">&times;</button>
+      <div class="popup__body">
+        <div class="popup__image">
+          <!-- Desktop image -->
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500&h=600&fit=crop" alt="" class="popup__img popup__img--desktop" loading="lazy">
+          <!-- Mobile image (different crop/aspect) -->
+          <!-- ACF: image_mobile -->
+          <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&h=300&fit=crop" alt="" class="popup__img popup__img--mobile" loading="lazy">
+        </div>
+        <div class="popup__content">
+          <span class="popup__eyebrow">מועדון לקוחות</span>
+          <h2 class="popup__title" id="popup-club-title">הצטרפו למועדון<br>וקבלו 10% הנחה!</h2>
+          <p class="popup__text">חברי המועדון נהנים ממחירים מיוחדים, מבצעים בלעדיים והזמנות לסדנאות וטעימות במרכז המבקרים שלנו.</p>
+          <form class="popup__form" novalidate>
+            <div class="popup__form-row">
+              <input type="text" class="popup__input" placeholder="שם מלא" required>
+              <input type="tel" class="popup__input" placeholder="טלפון" required>
+            </div>
+            <input type="email" class="popup__input popup__input--full" placeholder="אימייל" required>
+            <button type="submit" class="popup__cta popup__cta--primary">הצטרפות למועדון &rsaquo;</button>
+          </form>
+          <button class="popup__dismiss">לא תודה, אמשיך לגלוש</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP 2: Exit Intent -->
+  <div class="popup" id="popup-exit-intent" data-popup-type="exit-intent" data-trigger="exit-intent" data-show-to="all" data-frequency="session" role="dialog" aria-modal="true" aria-labelledby="popup-exit-title">
+    <div class="popup__backdrop"></div>
+    <div class="popup__container">
+      <button class="popup__close" aria-label="סגירה">&times;</button>
+      <div class="popup__body">
+        <div class="popup__image">
+          <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?w=500&h=600&fit=crop" alt="" class="popup__img popup__img--desktop" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1595231776515-ddffb1f4eb73?w=600&h=300&fit=crop" alt="" class="popup__img popup__img--mobile" loading="lazy">
+        </div>
+        <div class="popup__content">
+          <span class="popup__eyebrow">רגע לפני שעוזבים...</span>
+          <h2 class="popup__title" id="popup-exit-title">קבלו משלוח חינם<br>על ההזמנה הראשונה!</h2>
+          <p class="popup__text">השאירו פרטים ונשלח לכם קוד קופון למשלוח חינם ללא מינימום הזמנה.</p>
+          <form class="popup__form" novalidate>
+            <input type="email" class="popup__input popup__input--full" placeholder="אימייל" required>
+            <button type="submit" class="popup__cta popup__cta--primary">שליחת הקופון &rsaquo;</button>
+          </form>
+          <button class="popup__dismiss">לא תודה</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP 3: Promo (generic, ACF-controlled) -->
+  <div class="popup" id="popup-promo" data-popup-type="promo" data-trigger="scroll" data-trigger-scroll="50" data-show-to="all" data-frequency="once" role="dialog" aria-modal="true" aria-labelledby="popup-promo-title">
+    <div class="popup__backdrop"></div>
+    <div class="popup__container popup__container--compact">
+      <button class="popup__close" aria-label="סגירה">&times;</button>
+      <div class="popup__body popup__body--centered">
+        <div class="popup__content popup__content--full">
+          <img src="img/logo.png" alt="" class="popup__logo" width="80">
+          <h2 class="popup__title" id="popup-promo-title">מבצע מיוחד לחג!</h2>
+          <p class="popup__text">25% הנחה על כל מארזי החג.<br>המבצע בתוקף עד סוף השבוע.</p>
+          <a href="category.html" class="popup__cta popup__cta--primary">לחנות המבצעים &rsaquo;</a>
+          <button class="popup__dismiss">אמשיך לגלוש</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- Popup System JS -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Popup Manager
+    var PopupManager = {
+      activePopup: null,
+
+      init: function() {
+        var self = this;
+
+        // Bind close buttons
+        document.querySelectorAll('.popup__close, .popup__dismiss, .popup__backdrop').forEach(function(el) {
+          el.addEventListener('click', function() { self.close(); });
+        });
+
+        // Bind triggers from links (e.g., "Join the club" link)
+        document.querySelectorAll('[data-popup-trigger]').forEach(function(el) {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            self.open('popup-' + el.getAttribute('data-popup-trigger'));
+          });
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && self.activePopup) self.close();
+        });
+
+        // Init auto-triggers
+        this.initTimedTriggers();
+        this.initScrollTriggers();
+        this.initExitIntentTrigger();
+      },
+
+      open: function(id) {
+        var popup = document.getElementById(id);
+        if (!popup) return;
+
+        // Check frequency (once / session)
+        var freq = popup.getAttribute('data-frequency');
+        var storageKey = 'popup_seen_' + id;
+        if (freq === 'once' && localStorage.getItem(storageKey)) return;
+        if (freq === 'session' && sessionStorage.getItem(storageKey)) return;
+
+        // Check show-to (non-members / members / all)
+        // In static prototype, we treat everyone as non-member
+        var showTo = popup.getAttribute('data-show-to');
+        var isMember = document.body.classList.contains('is-member');
+        if (showTo === 'members' && !isMember) return;
+        if (showTo === 'non-members' && isMember) return;
+
+        // Show popup
+        popup.classList.add('popup--active');
+        document.body.style.overflow = 'hidden';
+        this.activePopup = popup;
+
+        // Mark as seen
+        if (freq === 'once') localStorage.setItem(storageKey, '1');
+        if (freq === 'session') sessionStorage.setItem(storageKey, '1');
+
+        // Focus trap — focus the close button
+        var closeBtn = popup.querySelector('.popup__close');
+        if (closeBtn) closeBtn.focus();
+      },
+
+      close: function() {
+        if (!this.activePopup) return;
+        this.activePopup.classList.remove('popup--active');
+        document.body.style.overflow = '';
+        this.activePopup = null;
+      },
+
+      // Timed triggers (data-trigger="timed" data-trigger-delay="15")
+      initTimedTriggers: function() {
+        var self = this;
+        document.querySelectorAll('.popup[data-trigger="timed"]').forEach(function(popup) {
+          var delay = parseInt(popup.getAttribute('data-trigger-delay') || '10', 10);
+          setTimeout(function() {
+            if (!self.activePopup) self.open(popup.id);
+          }, delay * 1000);
+        });
+      },
+
+      // Scroll triggers (data-trigger="scroll" data-trigger-scroll="50")
+      initScrollTriggers: function() {
+        var self = this;
+        var scrollPopups = document.querySelectorAll('.popup[data-trigger="scroll"]');
+        if (!scrollPopups.length) return;
+
+        var triggered = {};
+        window.addEventListener('scroll', function() {
+          var scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+          scrollPopups.forEach(function(popup) {
+            if (triggered[popup.id]) return;
+            var threshold = parseInt(popup.getAttribute('data-trigger-scroll') || '50', 10);
+            if (scrollPct >= threshold && !self.activePopup) {
+              triggered[popup.id] = true;
+              self.open(popup.id);
+            }
+          });
+        }, { passive: true });
+      },
+
+      // Exit intent (data-trigger="exit-intent")
+      initExitIntentTrigger: function() {
+        var self = this;
+        var exitPopups = document.querySelectorAll('.popup[data-trigger="exit-intent"]');
+        if (!exitPopups.length) return;
+
+        var triggered = false;
+        document.addEventListener('mouseout', function(e) {
+          if (triggered || self.activePopup) return;
+          if (e.clientY <= 5 && e.relatedTarget == null) {
+            triggered = true;
+            // Open the first available exit-intent popup
+            self.open(exitPopups[0].id);
+          }
+        });
+
+        // Mobile: detect back gesture / tab switch (visibilitychange)
+        document.addEventListener('visibilitychange', function() {
+          if (document.visibilityState === 'hidden' && !triggered && !self.activePopup) {
+            // Don't show on mobile visibilitychange — too aggressive
+            // Could be used for analytics instead
+          }
+        });
+      }
+    };
+
+    // Demo: for testing, open club popup after 5 seconds instead of 15
+    // Remove or adjust in production
+    document.addEventListener('DOMContentLoaded', function() {
+      PopupManager.init();
+    });
+  })();
+  </script>
 </body>
 </html>
