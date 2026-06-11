@@ -4110,6 +4110,45 @@ button {
   flex-wrap: wrap;
 }
 
+/* Order Notes */
+.cart__notes {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1.5px solid var(--color-cream);
+}
+
+.cart__notes-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: var(--space-sm);
+}
+
+.cart__notes-textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: var(--space-md);
+  border: 1.5px solid var(--color-cream);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-black);
+  background: var(--color-white);
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+}
+
+.cart__notes-textarea::placeholder {
+  color: var(--color-olive-300);
+}
+
+.cart__notes-textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
 .cart__coupon {
   display: flex;
   align-items: center;
@@ -8729,5 +8768,180 @@ button {
   .popup__cta {
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   404 — PAGE NOT FOUND
+   ============================================ */
+.error-404 {
+  padding-block-start: calc(var(--header-total-height) + var(--space-3xl));
+  padding-block-end: var(--space-4xl);
+  background: var(--color-cream-light);
+  min-height: 60vh;
+}
+
+.error-404__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+}
+
+.error-404__illustration {
+  width: 220px;
+  max-width: 70%;
+  margin-bottom: var(--space-lg);
+}
+
+.error-404__illustration svg {
+  width: 100%;
+  height: auto;
+}
+
+.error-404__code {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-gold);
+  margin: 0;
+}
+
+.error-404__title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.error-404__text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-olive-700);
+  margin: 0 0 var(--space-xl);
+}
+
+.error-404__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.error-404__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding-inline: var(--space-xl);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.error-404__btn--primary {
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-gold);
+}
+
+.error-404__btn--primary:hover {
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+  transform: translateY(-1px);
+}
+
+.error-404__btn--outline {
+  background: transparent;
+  color: var(--color-black);
+  border: 1.5px solid var(--color-olive-300);
+}
+
+.error-404__btn--outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-dark);
+}
+
+.error-404__search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  border: 1.5px solid var(--color-cream);
+  border-radius: 8px;
+  background: var(--color-white);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.error-404__search:focus-within {
+  border-color: var(--color-gold);
+}
+
+.error-404__search-input {
+  flex: 1;
+  height: 48px;
+  padding-inline: var(--space-md);
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-black);
+}
+
+.error-404__search-input:focus {
+  outline: none;
+}
+
+.error-404__search-input::placeholder {
+  color: var(--color-olive-300);
+}
+
+.error-404__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 48px;
+  border: none;
+  background: var(--color-black);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.error-404__search-btn:hover {
+  background: var(--color-gold);
+}
+
+@media (max-width: 480px) {
+  .error-404__code {
+    font-size: 3.5rem;
+  }
+
+  .error-404__title {
+    font-size: 1.6rem;
+  }
+
+  .error-404__text {
+    font-size: 0.95rem;
+  }
+
+  .error-404__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .error-404__btn {
+    width: 100%;
   }
 }
